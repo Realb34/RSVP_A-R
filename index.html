@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="page.title">Riley & Aleida's Wedding Celebration</title>
+
+    <!-- Font Awesome (Icons) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-petal-container">
+        <div class="preloader-petal petal1">🌸</div>
+        <div class="preloader-petal petal2">🌼</div>
+        <div class="preloader-petal petal3">🌺</div>
+        <div class="preloader-petal petal4">🌻</div>
+        <div class="preloader-petal petal5">🌷</div>
+      </div>
+    </div>
+
+    <!-- Floral Graphic -->
+    <div class="floral-graphic"></div>
+
+    <!-- Petal Animation Container -->
+    <div class="petal-container"></div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="#" data-i18n="nav.logo">R&A</a>
+        </div>
+        <!-- Language Selector -->
+        <div class="language-selector">
+          <select id="languageSelect" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#details"><i class="fas fa-map-marker-alt"></i> <span data-i18n="nav.celebrate">Celebrate</span></a>
+          <a href="#story"><i class="fas fa-heart"></i> <span data-i18n="nav.ourStory">Our Story</span></a>
+          <a href="#schedule"><i class="fas fa-clock"></i> <span data-i18n="nav.theBigDay">The Big Day</span></a>
+          <a href="#registry"><i class="fas fa-gift"></i> <span data-i18n="nav.registry">Our Gift Registry</span></a>
+          <a href="#rsvp"><i class="fas fa-envelope"></i> <span data-i18n="nav.rsvp">Kindly RSVP</span></a>
+          <a href="#admin"><i class="fas fa-user-secret"></i> <span data-i18n="nav.admin">Admin</span></a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 data-i18n="hero.title">Riley & Aleida</h1>
+        <p data-i18n="hero.dateLocation">June 21, 2025 • Cape Coral, FL</p>
+        <p class="tagline" data-i18n="hero.tagline">
+          Join us as we celebrate love, laughter, and happily ever after.
+        </p>
+
+        <!-- Countdown Timer (optional) -->
+        <div class="countdown-wrapper">
+          <h3 data-i18n="hero.countdownTitle">Days Until We Say "I Do":</h3>
+          <div id="countdown-timer">Loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Celebrate with Us Section -->
+    <section id="details" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="details.title">Celebrate with Us</h2>
+
+      <div class="wedding-details">
+        <div class="details-box">
+          <i class="fas fa-church"></i>
+          <h3 data-i18n="details.ceremonyTitle">Ceremony & Reception</h3>
+          <p>Lake Kennedy Center</p>
+          <p>400 Santa Barbara Blvd</p>
+          <p>Cape Coral, FL 33991</p>
+        </div>
+      </div>
+
+      <!-- Updated Google Maps Section with Basic iframe -->
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.472632282493!2d-81.92317968482488!3d26.64220498306063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9119fb4d3d9df%3A0x1e3b28e1d2a1e3b!2sLake%20Kennedy%20Center!5e0!3m2!1sen!2sus!4v1616589320736!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          title="Wedding Venue Location"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="story" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="story.title">Our Story</h2>
+      <div class="story-content">
+        <div>
+          <div class="romantic-quote">
+            “If I know what love is, it is because of you.”
+            <span data-i18n="story.quoteAuthor">— Hermann Hesse</span>
+          </div>
+          <div class="story-text">
+            <p data-i18n="story.paragraph1">We found something beautiful in each other.</p>
+            <p data-i18n="story.paragraph2">And now, we can’t wait to celebrate this next step surrounded by friends and family who have been cheering us on every step of the way!</p>
+          </div>
+        </div>
+        <div class="story-image">
+          <img
+            src="https://i.imgur.com/04CnBjp.jpeg"
+            alt="Riley and Aleida"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Day Schedule -->
+    <section id="schedule" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="schedule.title">The Big Day</h2>
+
+      <div class="wedding-details">
+        <div class="details-box">
+          <i class="fas fa-user-friends"></i>
+          <h3 data-i18n="schedule.time1">4:00 PM</h3>
+          <p data-i18n="schedule.event1">Guest Arrival</p>
+          <p data-i18n="schedule.details1">Welcome drinks available</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-rings"></i>
+          <h3 data-i18n="schedule.time2">4:30 PM</h3>
+          <p data-i18n="schedule.event2">Ceremony Begins</p>
+          <p data-i18n="schedule.details2">Please be seated by 4:25 PM</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-camera"></i>
+          <h3 data-i18n="schedule.time3">5:15 PM</h3>
+          <p data-i18n="schedule.event3">Family Photos</p>
+          <p data-i18n="schedule.details3">Cocktail hour begins</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-glass-cheers"></i>
+          <h3 data-i18n="schedule.time4">6:30 PM</h3>
+          <p data-i18n="schedule.event4">Reception Begins</p>
+          <p data-i18n="schedule.details4">Grand entrance & welcome</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-heart"></i>
+          <h3 data-i18n="schedule.time5">7:00 PM</h3>
+          <p data-i18n="schedule.event5">First Dance</p>
+          <p data-i18n="schedule.details5">Followed by parent dances</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-utensils"></i>
+          <h3 data-i18n="schedule.time6">7:30 PM</h3>
+          <p data-i18n="schedule.event6">Dinner Service</p>
+          <p data-i18n="schedule.details6">Toasts & speeches</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-birthday-cake"></i>
+          <h3 data-i18n="schedule.time7">8:45 PM</h3>
+          <p data-i18n="schedule.event7">Cake Cutting</p>
+          <p data-i18n="schedule.details7">Dessert service</p>
+        </div>
+        <div class="details-box">
+          <i class="fas fa-music"></i>
+          <h3 data-i18n="schedule.time8">9:00 PM</h3>
+          <p data-i18n="schedule.event8">Open Dancing</p>
+          <p data-i18n="schedule.details8">Including bouquet & garter toss</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registry -->
+    <section
+      id="registry"
+      class="container fade-in-section"
+      style="text-align: center"
+    >
+      <img
+        src="https://png.pngtree.com/png-clipart/20240829/original/pngtree-cute-cat-peeking-out-of-a-gift-box-vector-png-image_15879311.png"
+        alt="Registry"
+        style="display: block; margin: 0 auto; max-width: 250px"
+      />
+      <h2 class="section-title" data-i18n="registry.title">Our Gift Registry</h2>
+      <p data-i18n="registry.description">
+        We appreciate your presence most of all. But if you would like to bless
+        us with a gift, you can explore our registries below.
+      </p>
+      <div style="margin: 2rem 0">
+        <a href="#" class="registry-link" data-i18n="registry.amazon">Amazon Registry</a>
+        <a href="#" class="registry-link" data-i18n="registry.target">Target Registry</a>
+        <a href="#" class="registry-link" data-i18n="registry.honeymoon">Honeymoon Fund</a>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="faq.title">FAQ</h2>
+
+      <div class="faq-grid">
+        <!-- Example FAQ Item -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3><i class="fas fa-question-circle"></i> <span data-i18n="faq.contactQuestion">How can I contact the couple?</span></h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq.contactAnswer1">
+              For any questions or concerns, please reach out to:
+            </p>
+            <ul>
+              <li data-i18n="faq.contactRiley">Riley: (561) 275-6954</li>
+              <li data-i18n="faq.contactAleida">Aleida: (786) 985-8328</li>
+              <li data-i18n="faq.contactEmail">Email: bellinfamily12@gmail.com</li>
+            </ul>
+            <p data-i18n="faq.contactAnswer2">
+              We'll respond as soon as possible!
+            </p>
+          </div>
+        </div>
+
+        <!-- Additional FAQ Items -->
+        <!-- Repeat the following block for each FAQ item, replacing the data-i18n keys accordingly -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3><i class="fas fa-question-circle"></i> <span data-i18n="faq.venueQuestion">What time should I arrive?</span></h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p data-i18n="faq.venueAnswer1">
+              Please plan to arrive by 4:00 PM to allow time for:
+            </p>
+            <ul>
+              <li data-i18n="faq.venueList1">Finding parking</li>
+              <li data-i18n="faq.venueList2">Finding your preferred seat (open seating)</li>
+              <li data-i18n="faq.venueList3">Saying hi to other guests</li>
+            </ul>
+            <p data-i18n="faq.venueAnswer2">
+              The ceremony will begin promptly at 4:30 PM.
+            </p>
+          </div>
+        </div>
+
+        <!-- Continue adding FAQ items similarly -->
+        <!-- ... -->
+      </div>
+    </section>
+
+    <!-- RSVP Form -->
+    <section id="rsvp" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="rsvp.title">Kindly RSVP</h2>
+
+      <!-- Disclaimer -->
+      <p class="rsvp-disclaimer" data-i18n="rsvp.disclaimer">
+        If you’re attending as a couple, just check “Plus one.” Only one of you needs
+        to fill out this form!
+      </p>
+
+      <!-- Feedback Messages -->
+      <div id="rsvpFeedback" class="rsvp-feedback" aria-live="polite"></div>
+
+      <form class="rsvp-form" id="rsvpForm">
+        <div class="form-group">
+          <label for="fullName" data-i18n="form.fullNameLabel">Full Name</label>
+          <input type="text" id="fullName" required placeholder="Your name" data-placeholder="form.fullNamePlaceholder" />
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form.emailLabel">Email Address (Optional)<span class="optional" data-i18n="form.optional"> (optional)</span></label>
+          <input
+            type="email"
+            id="email"
+            placeholder="your.email@example.com"
+            data-placeholder="form.emailPlaceholder"
+          />
+        </div>
+        <div class="form-group">
+          <label for="attendance" data-i18n="form.attendanceLabel">Will you be joining us?</label>
+          <select id="attendance" required>
+            <option value="" data-i18n="form.selectOption">Please select...</option>
+            <option value="yes" data-i18n="form.yes">Joyfully Accept</option>
+            <option value="no" data-i18n="form.no">Regretfully Decline</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="plusOne" />
+            <span data-i18n="form.plusOne">Will you be bringing a plus one?</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="dietary" data-i18n="form.dietaryLabel">Dietary Restrictions</label>
+          <textarea
+            id="dietary"
+            rows="3"
+            placeholder="Please let us know of any dietary restrictions"
+            data-placeholder="form.dietaryPlaceholder"
+          ></textarea>
+        </div>
+        <button type="submit" data-i18n="form.submitButton">Send RSVP</button>
+      </form>
+    </section>
+
+    <!-- Admin Section -->
+    <section id="admin" class="container fade-in-section">
+      <h2 class="section-title" data-i18n="admin.title">Admin Panel</h2>
+
+      <!-- Password Prompt -->
+      <div id="adminLogin">
+        <p data-i18n="admin.prompt">Please enter the admin password to view RSVPs:</p>
+        <input type="password" id="adminPassword" placeholder="Enter Password" />
+        <button id="adminLoginButton" data-i18n="admin.loginButton">Login</button>
+        <div id="adminFeedback" class="rsvp-feedback" aria-live="polite"></div>
+      </div>
+
+      <!-- RSVPs Display -->
+      <div id="adminContent" style="display: none;">
+        <h3 data-i18n="admin.rsvpList">RSVP List</h3>
+        <table id="rsvpTable">
+          <thead>
+            <tr>
+              <th data-i18n="admin.tableTimestamp">Timestamp</th>
+              <th data-i18n="admin.tableFullName">Full Name</th>
+              <th data-i18n="admin.tableEmail">Email</th>
+              <th data-i18n="admin.tableAttendance">Attendance</th>
+              <th data-i18n="admin.tablePlusOne">Plus One</th>
+              <th data-i18n="admin.tableDietary">Dietary Restrictions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- RSVPs will be populated here -->
+          </tbody>
+        </table>
+        <button id="downloadCSV" data-i18n="admin.downloadButton">Download as CSV</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p data-i18n="footer.text">Don't hesitate to call or text us if you have any hiccups or questions :)</p>
+    </footer>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+  </body>
+</html>
