@@ -1,0 +1,952 @@
+/* --------------------------- */
+/*       Modern Reset          */
+/* --------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+  color: #2d2438;
+  background: #faf7ff;
+}
+
+/* --------------------------- */
+/*          Variables          */
+/* --------------------------- */
+:root {
+  --primary-color: #9b7cb8; /* Light Purple */
+  --primary-light: #d4c5e6; /* Lighter Purple */
+  --primary-dark: #694d8c; /* Darker Purple */
+  --accent-color: #e6d7f3; /* Very Light Purple (border) */
+  --text-color: #2d2438; /* Deep Purple/Brown */
+  --background-light: #faf7ff; /* Off-white with a lilac tint */
+  --font-primary: "Cormorant Garamond", serif;
+  --font-script: "Dancing Script", cursive;
+  --font-secondary: "Montserrat", sans-serif;
+
+  /* Additional floral accent color (soft pink) */
+  --secondary-floral: #fadadd;
+
+  /* Feedback message colors */
+  --feedback-success: #4caf50; /* Green */
+  --feedback-error: #f44336; /* Red */
+}
+
+/* --------------------------- */
+/*        Preloader            */
+/* --------------------------- */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #faf7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader-petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.preloader-petal {
+  position: absolute;
+  top: -10%;
+  font-size: 2rem;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+.preloader-petal1 {
+  left: 10%;
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+
+.preloader-petal2 {
+  left: 30%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+  transform: rotate(45deg);
+}
+
+.preloader-petal3 {
+  left: 50%;
+  animation-duration: 14s;
+  animation-delay: 4s;
+  transform: rotate(-30deg);
+}
+
+.preloader-petal4 {
+  left: 70%;
+  animation-duration: 11s;
+  animation-delay: 6s;
+  transform: rotate(60deg);
+}
+
+.preloader-petal5 {
+  left: 90%;
+  animation-duration: 13s;
+  animation-delay: 8s;
+  transform: rotate(-45deg);
+}
+
+/* Keyframes for falling petals */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* --------------------------- */
+/*       Floral Graphic        */
+/* --------------------------- */
+.floral-graphic {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40vw;
+  height: 100vh;
+  background: url("YOUR-FLORAL-IMAGE.png") no-repeat right center;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1200px) {
+  .floral-graphic {
+    width: 30vw;
+  }
+}
+@media (max-width: 992px) {
+  .floral-graphic {
+    width: 25vw;
+  }
+}
+@media (max-width: 768px) {
+  .floral-graphic {
+    display: none;
+  }
+}
+
+/* --------------------------- */
+/*          Navigation         */
+/* --------------------------- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.2rem 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  box-shadow: 0 2px 20px rgba(155, 124, 184, 0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo a {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem; /* Increased horizontal padding */
+  margin: 0; /* Reset margin */
+  transition: color 0.3s ease;
+  font-size: 1rem; /* Responsive font size */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Nav Toggle (Hamburger) */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto; /* Push to the far right */
+}
+
+.language-selector {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.language-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  background: var(--background-light);
+  color: var(--text-color);
+  font-family: var(--font-secondary);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    align-items: center;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-links.active {
+    max-height: 500px;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .language-selector {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+/* --------------------------- */
+/*        Hero Section         */
+/* --------------------------- */
+.hero {
+  margin-top: 4rem; /* Adjust based on nav height */
+  height: calc(100vh - 4rem); /* Adjust height to fit viewport minus nav height */
+  background: linear-gradient(
+      rgba(155, 124, 184, 0.3),
+      rgba(155, 124, 184, 0.3)
+    ),
+    url("https://i.imgur.com/aoUWmid.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 1rem;
+}
+
+.hero-content {
+  padding: 3rem;
+  background: rgba(155, 124, 184, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 600px;
+  margin: 0 1rem;
+}
+
+.hero h1 {
+  font-family: var(--font-script);
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero p {
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: #f9f9f9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-wrapper {
+  margin-top: 2rem;
+}
+.countdown-wrapper h3 {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+#countdown-timer {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* --------------------------- */
+/*     Fade-In Animations      */
+/* --------------------------- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------- */
+/*        Main Container       */
+/* --------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  background-color: #fbf7ff;
+  border-radius: 15px;
+  margin-bottom: 8rem;
+}
+
+/* --------------------------- */
+/*     Section Title & Flourish */
+.section-title {
+  font-family: var(--font-script);
+  font-size: 3rem;
+  text-align: center;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 40px;
+  margin: 1rem auto 0;
+  opacity: 0.7;
+}
+
+/* --------------------------- */
+/*      Wedding Details        */
+/* --------------------------- */
+.wedding-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.details-box {
+  position: relative;
+  text-align: center;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(155, 124, 184, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--accent-color);
+}
+
+.details-box::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  width: 40px;
+  height: 40px;
+  background: url("https://via.placeholder.com/40x40?text=Flower")
+    no-repeat center/contain;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.details-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 40px rgba(155, 124, 184, 0.2);
+}
+
+.details-box h3 {
+  font-family: var(--font-primary);
+  color: var(--primary-color);
+  margin: 1.5rem 0;
+  font-size: 1.8rem;
+}
+
+.details-box i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+/* --------------------------- */
+/*        Story Section        */
+/* --------------------------- */
+.story-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.story-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.romantic-quote {
+  font-style: italic;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: var(--font-primary);
+}
+.romantic-quote span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.story-image {
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(155, 124, 184, 0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.story-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color) 0%,
+    transparent 100%
+  );
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.story-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+  transform: scale(1.05);
+}
+
+.story-image:hover::after {
+  opacity: 0.3;
+}
+
+/* --------------------------- */
+/*        Map Container        */
+/* --------------------------- */
+/* Updated for Basic iframe */
+.map-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(155, 124, 184, 0.1);
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 15px;
+}
+
+/* --------------------------- */
+/*        Registry Links       */
+/* --------------------------- */
+.registry-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 1rem;
+}
+.registry-link:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------- */
+/*         FAQ Section         */
+/* --------------------------- */
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 10px;
+  border: 1px solid var(--accent-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+
+.faq-question h3 {
+  font-family: var(--font-primary);
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.faq-question i.fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  padding: 0 1.5rem;
+}
+
+.faq-answer.active {
+  max-height: 500px;
+  padding: 1.5rem;
+}
+
+.faq-answer p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.faq-answer ul {
+  list-style: none;
+  padding-left: 1.2rem;
+}
+
+.faq-answer li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.faq-answer li::before {
+  content: "•";
+  color: var(--primary-color);
+  position: absolute;
+  left: -1.2rem;
+}
+
+.faq-item.highlighted {
+  border: 2px solid var(--primary-color);
+  background: var(--background-light);
+}
+
+/* --------------------------- */
+/*         RSVP Form           */
+/* --------------------------- */
+.rsvp-form {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(155, 124, 184, 0.1);
+  border: 1px solid var(--accent-color);
+}
+
+.rsvp-form::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  width: 40px;
+  height: 40px;
+  background: url("https://via.placeholder.com/40x40?text=Flower")
+    no-repeat center/contain;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+.form-group .optional {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  margin-left: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: var(--background-light);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(155, 124, 184, 0.1);
+}
+
+.checkbox-label input {
+  margin-right: 0.5rem;
+}
+
+button {
+  background: var(--primary-color);
+  color: white;
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(155, 124, 184, 0.2);
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 124, 184, 0.3);
+}
+
+/* RSVP Disclaimer */
+.rsvp-disclaimer {
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* RSVP Feedback Messages */
+.rsvp-feedback {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.rsvp-feedback.success {
+  color: var(--feedback-success);
+}
+
+.rsvp-feedback.error {
+  color: var(--feedback-error);
+}
+
+/* --------------------------- */
+/*          Admin Section       */
+/* --------------------------- */
+
+/* Admin Login */
+#adminLogin {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#adminLogin input[type="password"] {
+  width: 80%;
+  max-width: 300px;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  border: 2px solid var(--accent-color);
+  border-radius: 8px;
+  font-family: var(--font-secondary);
+  background: var(--background-light);
+}
+
+#adminLogin button {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+}
+
+#adminLogin button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 124, 184, 0.3);
+}
+
+/* Admin Feedback */
+#adminFeedback.success {
+  color: var(--feedback-success);
+}
+
+#adminFeedback.error {
+  color: var(--feedback-error);
+}
+
+/* RSVPs Table */
+#rsvpTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+#rsvpTable th,
+#rsvpTable td {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#rsvpTable th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#rsvpTable tr:nth-child(even) {
+  background-color: #f2e6ff;
+}
+
+/* Download CSV Button */
+#downloadCSV {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+}
+
+#downloadCSV:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(155, 124, 184, 0.3);
+}
+
+/* --------------------------- */
+/*        Footer               */
+/* --------------------------- */
+footer {
+  background: white;
+  padding: 3rem;
+  text-align: center;
+  border-top: 1px solid var(--accent-color);
+}
+
+footer p {
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+}
+
+/* --------------------------- */
+/*       Responsive Design     */
+/* --------------------------- */
+/* Hero Section Responsive */
+@media (max-width: 768px) {
+  .hero {
+    margin-top: 3.5rem;
+    height: calc(100vh - 3.5rem);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero p {
+    font-size: 1.4rem;
+  }
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .rsvp-form {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin-top: 3rem;
+    height: calc(100vh - 3rem);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .tagline {
+    font-size: 1.2rem;
+  }
+  .countdown-wrapper h3 {
+    font-size: 1.3rem;
+  }
+  #countdown-timer {
+    font-size: 1.4rem;
+  }
+}
+
+/* --------------------------- */
+/*       Petal Animation       */
+/* --------------------------- */
+
+/* Petal Animation Styles */
+
+.petal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999; /* Above other elements */
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.petal-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -10%;
+  font-size: 2rem; /* Adjust size as needed */
+  opacity: 0.8;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+.petal::before {
+  content: "🌸"; /* Default petal emoji */
+  display: block;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+}
+
+/* Keyframes for falling petals */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}
+
+/* --------------------------- */
+/*        Responsive Petal Animation */
+/* --------------------------- */
+
+@media (max-width: 768px) {
+  .petal {
+    animation-duration: 15s;
+    opacity: 0.6;
+  }
+}
